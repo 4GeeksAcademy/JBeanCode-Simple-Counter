@@ -1,26 +1,23 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useState} from "react";
+import { Timer } from "./Timer";
 
 //create your first component
 const Home = () => {
+	const [counter, setCounter] = useState(0)
+
+	setTimeout(() => {
+		setCounter(counter + 1)
+		console.log(counter)
+		clearTimeout()
+	}, 1000)
+
+
 	return (
 		<div className="text-center">
-            
-
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<div className="title bg-success">
+				<h1 className="mb-0">Second Counter!</h1>
+			</div>
+			<Timer count={counter} />
 		</div>
 	);
 };
